@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private Analytics</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#090d16;color:white;
+ font-family:Arial,sans-serif;padding:20px
+}
+.container{max-width:900px;margin:auto}
+h1{font-size:25px}
+.subtitle{color:#8995aa}
+.grid{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:14px;margin-top:25px
+}
+.card{
+ background:#141c2b;padding:20px;
+ border:1px solid #27344a;border-radius:14px
+}
+.label{color:#9ba9bd;font-size:13px}
+.value{font-size:27px;margin-top:12px}
+.login{
+ max-width:360px;margin:100px auto;
+ background:#141c2b;padding:25px;
+ border-radius:15px
+}
+input,button{
+ width:100%;padding:13px;margin-top:12px;
+ border:0;border-radius:8px
+}
+button{background:#3478f6;color:white}
+#dashboard{display:none}
+@media(max-width:500px){
+ .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+ <div class="login" id="login">
+  <h2>Admin Login</h2>
+  <p class="subtitle">Private analytics access</p>
+  <input id="email" type="email" placeholder="Admin email">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Sign in</button>
+  <p id="error"></p>
+ </div>
+
+ <div id="dashboard">
+  <h1>Visitor Analytics</h1>
+  <p class="subtitle">Private administration panel</p>
+  <div class="grid">
+   <div class="card">
+    <div class="label">Total visitors</div>
+    <div class="value" id="total">—</div>
+   </div>
+   <div class="card">
+    <div class="label">Devices</div>
+    <div class="value" id="devices">—</div>
+   </div>
+   <div class="card">
+    <div class="label">Operating systems</div>
+    <div class="value" id="systems">—</div>
+   </div>
+   <div class="card">
+    <div class="label">Screen resolutions</div>
+    <div class="value" id="resolutions">—</div>
+   </div>
+  </div>
+  <button onclick="logout()">Logout</button>
+ </div>
+</div>
+
+<script>
+async function login(){
+ document.getElementById("error").textContent =
+ "Login will be enabled after secure server authentication is configured.";
+}
+function logout(){
+ document.getElementById("dashboard").style.display="none";
+ document.getElementById("login").style.display="block";
+}
+</script>
+</body>
+</html>
+￼Enter
